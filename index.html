@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div id="app">
+    {{ message }}
+    <input type="text" v-model="word"></input>
+    <button @click="request">検索</button>
+    {{word}}<br/><hr/>
+    <ul>
+      <li v-for="item in datas">
+        {{item}}
+      </li>
+    </ul>
+    {{datas}}
+</div>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!',
+      datas: null,
+      word: ""
+    },
+    methods:{
+        request: function(){
+            const httpClient = axios
+            let data = {"search_word": this.word}
+            axios({
+                method: 'POST',
+                url: 'http://localhost:8000',
+                data: data
+            })
+                .then(response => (this.datas = response.amazon))
+                .catch(error => console.log(error))
+        }
+    },
+  })
+</script>
+<style>
+  ul{list-style: none;}
+</style>

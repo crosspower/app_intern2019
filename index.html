@@ -1,41 +1,70 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!DOCTYPE html>
+<html>
 
-<div id="app">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+  <div id="app">
+      <v-app>
+          <v-navigation-drawer></v-navigation-drawer>
+          <v-toolbar><v-toolbar-title>Example Shop</v-toolbar-title></v-toolbar>
+          <main>
+              <v-container fluid>
+                  <router-view></router-view>
+              </v-container>
+          </main>
+          <v-footer>Design by hoge.</v-footer>
+      </v-app>
     {{ message }}
     <input type="text" v-model="word"></input>
     <button @click="request">検索</button>
-    {{word}}<br/><hr/>
+    <br />
+    <hr />
     <ul>
       <li v-for="item in datas">
         {{item}}
       </li>
     </ul>
+    <v-btn>Button</v-btn>
     {{datas}}
-</div>
-<script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      message: 'Hello Vue!',
-      datas: null,
-      word: ""
-    },
-    methods:{
-        request: function(){
-            const httpClient = axios
-            let data = {"search_word": this.word}
-            axios({
-                method: 'POST',
-                url: 'http://localhost:8000',
-                data: data
-            })
-                .then(response => (this.datas = response.amazon))
-                .catch(error => console.log(error))
+  </div>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        datas: null,
+        word: ""
+      },
+      methods: {
+        request: function () {
+          const httpClient = axios
+          let data = { "search_word": this.word }
+          axios({
+            method: 'POST',
+            url: 'http://localhost:8000',
+            data: data
+          })
+            .then(response => (this.datas = response.amazon))
+            .catch(error => console.log(error))
         }
-    },
-  })
-</script>
-<style>
-  ul{list-style: none;}
-</style>
+      },
+    })
+  </script>
+  <style>
+    ul {
+      list-style: none;
+    }
+  </style>
+</body>
+
+</html>

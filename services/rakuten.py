@@ -2,10 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def scrape(word):
+def get_product_info(search_word):
     url = "https://search.rakuten.co.jp/search/mall/"
-
-    html = requests.get(url+word).content
+    
+    html = requests.get(url+search_word).content
     soup = BeautifulSoup(html,'html.parser')
 
     result = []

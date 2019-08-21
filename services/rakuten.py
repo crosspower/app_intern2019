@@ -17,6 +17,7 @@ def get_product_info(search_word):
         else:
             price = 0
         result.append(dict(
+            service_name = "rakuten",
             title = item.select_one('.title').get_text(),
             price = price,
             image = item.select_one('img')['src'],

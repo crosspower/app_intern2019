@@ -29,11 +29,9 @@ async def root(search: Search):
     for service_name in service_names:
         service_module = import_module("services."+service_name)
         
-        result.append(dict(
-                service = service_name,
-                item = service_module.get_product_info(search.search_word)
-            ))
-    return result
+        result.extend(service_module.get_product_info(search.search_word))
+    # 価格が安い順にソート
+    return sorted(result, key=lambda product: product['price'])
 
 if __name__=="__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

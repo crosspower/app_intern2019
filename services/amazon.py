@@ -9,6 +9,7 @@ def get_product_info(search_word):
     soup = BeautifulSoup(html,'html.parser')
     
     result = []
+    bow = soup.select('.s-result-item')
     for item in soup.select('.s-result-item'):
         price = 0
         price_span = item.select_one('.a-price-whole')
@@ -16,6 +17,7 @@ def get_product_info(search_word):
             price = int(price_span.get_text().replace(',',''))
 
         result.append(dict(
+            service_name = "amazon",
             title = item.select_one('h2').get_text(),
             price = price,
             image = item.select_one('img')['src'],

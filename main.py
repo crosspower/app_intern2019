@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 import services
 import os
 from importlib import import_module
+import math
 
 app = FastAPI()
 
@@ -31,7 +32,7 @@ async def root(search: Search):
         
         result.extend(service_module.get_product_info(search.search_word))
     # 価格が安い順にソート
-    return sorted(result, key=lambda product: product['price'])
+    return sorted(result, key=lambda product: product['price'] if product['price']!=None else math.inf)
 
 if __name__=="__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

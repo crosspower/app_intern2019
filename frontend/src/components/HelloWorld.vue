@@ -5,7 +5,7 @@
       <v-layout align-center column justify-center>
         <h1 class="display-2 font-weight-thin mb-10 mt-10">Summer Intern2019</h1>
         <v-flex>
-          <v-text-field label="Here comes a word" outlined v-model="word"></v-text-field>
+          <v-text-field label="Here comes a word" color="white" outlined v-model="word"></v-text-field>
           <v-btn
             large
             depressed
@@ -19,22 +19,17 @@
       </v-layout>
     </v-parallax>
     <v-layout class="pa-5 d-block">
-      <v-flex class="pl-5" v-if="product_infos">
-        {{word}}の検索結果
-      </v-flex>
-      <v-flex class="pl-5" v-if="product_infos">
-        {{product_infos.length}}件表示
-      </v-flex>
+      <v-flex class="pl-5" v-if="product_infos">{{search_word}}の検索結果</v-flex>
+      <v-flex class="pl-5" v-if="product_infos">{{product_infos.length}}件表示</v-flex>
       <v-flex md12 text-center v-if="product_infos">
         <v-row>
           <v-col cols="12">
             <v-row justify="center">
               <item-box
-                :product_info="item"
                 v-for="(item,index) in product_infos"
                 :key="index"
                 class="mr-10 mb-10"
-                href="https://www.google.com/"
+                :product_info="item"
               ></item-box>
             </v-row>
           </v-col>
@@ -60,7 +55,7 @@ export default {
   methods: {
     request: function() {
       this.loading = true;
-      this.search_word = this.word
+      this.search_word = this.word;
       let data = { search_word: this.word };
       axios({
         method: "POST",
@@ -69,9 +64,7 @@ export default {
       })
         .then(response => (this.product_infos = response.data))
         .catch(error => console.log(error))
-        .finally(() => (
-          this.loading = false
-          ))
+        .finally(() => (this.loading = false));
     }
   }
 };

@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0 item-box">
+  <v-container class="pa-0 ma-0 item-box">
     <v-layout class="d-block">
       <v-flex pa-0>
         <v-img

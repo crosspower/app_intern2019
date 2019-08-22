@@ -17,7 +17,7 @@
           <v-row class="mx-2">
             ￥{{`${(product_info['price']||'-').toLocaleString('ja-JP')}`}}
             <v-spacer></v-spacer>
-            <v-img :src="product_info['icon']"></v-img>
+            <v-img :src="product_info['icon']" max-height="30" max-width="30"></v-img>
           </v-row>
         </div>
       </v-flex>

@@ -1,6 +1,5 @@
 <template>
   <v-container class="pa-0" align-center fluid>
-    <!-- <v-layout text-center wrap></v-layout> -->
     <v-parallax dark height="300" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
       <v-layout align-center column justify-center>
         <h1 class="display-2 font-weight-thin mb-10 mt-10">Summer Intern2019</h1>

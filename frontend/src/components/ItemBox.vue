@@ -27,9 +27,6 @@
 <script>
 export default {
   props: ["product_info"],
-  data: () => ({
-    message: "herehere"
-  }),
   methods: {
     open_link() {
       window.open(this.product_info["link"], "_blank");

@@ -24,10 +24,6 @@ class Search(BaseModel):
 
 @app.post("/")
 async def root(search: Search):
-    # servicesディレクトリにあるサービス一覧を取得
-    # service_names_with_py = list(filter(lambda file_name: not ("__" in file_name), os.listdir('services')))
-    # service_names = [service.replace(".py","") for service in service_names_with_py]
-
     result = []
     for service_name in services.__all__:
         service_module = import_module("services." + service_name)

@@ -14,6 +14,7 @@
             :append-icon="'mdi-magnify'"
             @keyup.enter="request"
             @click:append="request"
+            class='my-text-style'
           ></v-text-field>
         </v-flex>
       </v-layout>
@@ -75,11 +76,12 @@ export default {
         this.product_infos = []
       }
       this.loading = false
-
-        // .then(response => ())
-        // .catch(() => (this.product_infos = [{ title: "no data" }]))
-        // .finally(() => (this.loading = false));
     }
   }
 };
 </script>
+<style scoped>
+.my-text-style >>> .v-text-field__slot input {
+    color: white !important;
+  }
+</style>

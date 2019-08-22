@@ -4,9 +4,10 @@ from bs4 import BeautifulSoup
 
 def get_product_info(search_word):
     url = "https://www.amazon.co.jp/s?k="
+    query = {'k': search_word}
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'}
     # htmlのソースコードを取得
-    html = requests.get(url+search_word,headers=headers).content
+    html = requests.get(url, params=query,headers=headers).content
     soup = BeautifulSoup(html,'html.parser')
     
     result = []

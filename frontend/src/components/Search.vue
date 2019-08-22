@@ -2,18 +2,20 @@
   <v-container class="pa-0" align-center fluid>
     <v-parallax dark height="300" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
       <v-layout align-center column justify-center>
-        <h1 class="display-2 font-weight-thin mb-10 mt-10">Summer Intern2019</h1>
+        <h1 class="display-2 font-weight-thin my-10">Summer Intern2019</h1>
         <v-flex>
-          <v-text-field label="Here comes a word" color="white" outlined v-model="search_word"></v-text-field>
-          <v-btn
-            large
-            depressed
-            small
-            @click="request"
+          <v-text-field
+            label="Here comes a word"
+            color="white"
+            outlined
+            v-model="search_word"
             :loading="loading"
             :disabled="loading"
-            color="primary"
-          >search</v-btn>
+            :append-icon="'mdi-magnify'"
+            @keyup.enter="request"
+            @click:append="request"
+            class='my-text-style'
+          ></v-text-field>
         </v-flex>
       </v-layout>
     </v-parallax>
@@ -53,20 +55,33 @@ export default {
     "item-box": ItemBox
   },
   methods: {
-    request: function() {
+    async request(){
+      if (!this.search_word){
+        return 
+      }
+      
       this.loading = true;
       this.product_infos = null;
       this.display_word = this.search_word;
       let data = { search_word: this.search_word };
-      axios({
-        method: "POST",
-        url: "http://localhost:8000",
-        data: data
-      })
-        .then(response => (this.product_infos = response.data))
-        .catch(() => this.product_infos = [{title: "no data"}])
-        .finally(() => (this.loading = false));
+
+      try{
+        const response = await axios({
+          method: "POST",
+          url: "http://localhost:8000",
+          data: data
+        })
+        this.product_infos = response.data
+      } catch {
+        this.product_infos = []
+      }
+      this.loading = false
     }
   }
 };
 </script>
+<style scoped>
+.my-text-style >>> .v-text-field__slot input {
+    color: white !important;
+  }
+</style>

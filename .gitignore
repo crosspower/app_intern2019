@@ -19,3 +19,10 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+venv
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class

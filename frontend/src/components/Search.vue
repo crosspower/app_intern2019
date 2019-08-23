@@ -30,7 +30,7 @@
               <item-box
                 v-for="(item,index) in product_infos"
                 :key="index"
-                class="mr-10 mb-10"
+                class="mr-10 mb-10 css-fade"
                 :product_info="item"
               ></item-box>
             </v-row>
@@ -84,4 +84,18 @@ export default {
 .my-text-style >>> .v-text-field__slot input {
     color: white !important;
   }
+.css-fade{
+  animation-name:fade-in1;
+  animation-duration:2s;
+  animation-timing-function: ease-out;
+  animation-delay:0s; 
+  animation-iteration-count:1; 
+  animation-direction:normal; 
+  animation-fill-mode: forwards; 
+}
+@keyframes fade-in1 {
+  0% {opacity: 0}
+  25% {opacity: 0}
+  100% {opacity: 1}
+}
 </style>

@@ -50,7 +50,7 @@ Pythonを既に使えるという方は多いのではないはないでしょ�
 ２．各ページを巡回して、文章などを単語レベルで切り分けてインデックスに保存する。  
 ３．併せてその他、サイトの新しさなどのシグナルも保存する。  
 
-これだけです。しかし、この3番にGoogleの検索順位などが関わっており、一般的にSEOと呼ばれています。  
+これだけです。（3番にGoogleの検索順位などが関わっており、一般的にSEOと呼ばれています。）  
 ＜参考＞  
 [SEO（Search Engine Optimization:検索エンジン最適化）](https://moukegaku.com/google-ranking-algorithm/#domain)  
 
@@ -75,10 +75,10 @@ Pythonを既に使えるという方は多いのではないはないでしょ�
 
 ## 環境準備手順
 環境準備は以下の手順に則って行うこと。
-1. [サマーインターンリポジトリ](https://github.com/crosspower/summer_intern)
+1. [アプリインターンリポジトリ](https://github.com/crosspower/app_intern)
 にて「clone or download」ボタンを押下し、URLをコピー
 2. 「git clone [**URL**]」をVSCode上で実行し、ファイルを一括で取得  
-    (summer_intern2019ディレクトリに移動)
+    (app_internディレクトリに移動)
 3. 「py -m venv venv」で"venv"という名前で仮想環境を作成する
 4. 「. intern/Scripts/activate」で仮想環境に入る
 5. 「pip install -r requirements.txt」でモジュールを一括インストール

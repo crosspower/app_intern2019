@@ -1,4 +1,4 @@
-# Summer Intern 2019
+#  App Intern 2019
 本インターンは、クロスパワーアプリ部門インターン2019「検索サイトを作ってみよう」です。
 
 ## 目的
@@ -80,7 +80,7 @@ Pythonを既に使えるという方は多いのではないはないでしょ�
 2. 「git clone [**URL**]」をVSCode上で実行し、ファイルを一括で取得  
     (app_internディレクトリに移動)
 3. 「py -m venv venv」で"venv"という名前で仮想環境を作成する
-4. 「. intern/Scripts/activate」で仮想環境に入る
+4. 「. venv/Scripts/activate」で仮想環境に入る
 5. 「pip install -r requirements.txt」でモジュールを一括インストール
 6. frontendディレクトリに移動し、「npm install」でモジュールを一括インストール
 7. 「npm run serve」でフロントエンドのサーバーを起動

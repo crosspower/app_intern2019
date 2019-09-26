@@ -2,7 +2,7 @@
   <v-container class="pa-0" align-center fluid>
     <v-parallax dark height="300" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
       <v-layout align-center column justify-center>
-        <h1 class="display-2 font-weight-thin my-10">Summer Intern2019</h1>
+        <h1 class="display-2 font-weight-thin my-10">App Intern2019</h1>
         <v-flex>
           <v-text-field
             label="Here comes a word"

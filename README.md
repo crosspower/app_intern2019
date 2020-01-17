@@ -82,8 +82,8 @@ Pythonを既に使えるという方は多いのではないはないでしょ�
 3. 「py -m venv venv」で"venv"という名前で仮想環境を作成する
 4. 「. venv/Scripts/activate」で仮想環境に入る
 5. 「pip install -r requirements.txt」でモジュールを一括インストール
-6. frontendディレクトリに移動し、「npm install」でモジュールを一括インストール
-　　(npmを使用するにはNode.jsをインストールし、エディタを再起動する必要あり)
+6. frontendディレクトリに移動し、「npm install」でモジュールを一括インストール  
+    (npmを使用するにはNode.jsをインストールし、エディタを再起動する必要あり)
 7. 「npm run serve」でフロントエンドのサーバーを起動
 8. 「uvicorn main:app --reload」でバックエンドのサーバーを起動
 9. ブラウザ上で[http://localhost:8080/](http://localhost:8080/)にアクセスし、動作を確認する  

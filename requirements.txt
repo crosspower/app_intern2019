@@ -11,4 +11,4 @@ soupsieve==1.9.2
 starlette==0.12.7
 urllib3==1.25.3
 uvicorn==0.11.7
-websockets==7.0
+websockets==9.1
